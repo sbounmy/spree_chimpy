@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.description = ''
   s.required_ruby_version = '>= 1.9.3'
 
-  s.author    = 'Joshua Nussbaum'
+  s.authors    = ['Grzegorz Błaszczyk', 'Joshua Nussbaum']
   s.email     = 'josh@godynamo.com'
   s.homepage  = 'http://www.godynamo.com'
 
@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '~> 1.2'
+  s.add_dependency 'spree_core', '~> 2.0.3'
   s.add_dependency 'mailchimp'
   
   s.add_development_dependency 'capybara', '~> 1.1.2'

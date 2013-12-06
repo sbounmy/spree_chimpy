@@ -16,7 +16,6 @@ module Spree::Chimpy
 
     def resubscribe(&block)
       block.call if block
-
       return unless configured?
 
       if unsubscribing?
@@ -32,11 +31,11 @@ module Spree::Chimpy
     end
 
     def allowed?
-      configured? && @model.subscribed
+      configured?
     end
 
     def subscribing?
-      merge_vars_changed? && @model.subscribed
+      @model.subscribed
     end
 
     def unsubscribing?

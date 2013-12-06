@@ -12,7 +12,6 @@ module Spree::Chimpy
 
       def subscribe(email, merge_vars = {}, options = {})
         log "Subscribing #{email} to #{@list_name}"
-
         @api.list_subscribe(id: list_id, email_address: email, merge_vars: merge_vars, update_existing: true, double_optin: @double_opt_in, email_type: 'html')
 
         segment([email]) if options[:customer]
@@ -37,7 +36,9 @@ module Spree::Chimpy
       end
 
       def find_list_id(name)
-        @api.lists["data"].detect { |r| r["name"] == name } && name["id"]
+        if list = @api.lists["data"].detect { |r| r["name"] == name }
+          list["id"]
+        end
       end
 
       def list_id
